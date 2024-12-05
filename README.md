@@ -1,6 +1,7 @@
 # StudyNotion Online Education Platform (MERN App)
 
-![Main Page](images/mainpage.png)
+
+![Screenshot 2024-12-05 141512](https://github.com/user-attachments/assets/7c5e1f03-5374-4c30-b6f9-72c61b3ca1b3)
 
 ## Project Description
 
