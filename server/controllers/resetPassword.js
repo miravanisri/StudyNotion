@@ -27,8 +27,8 @@ console.log("user",user)
     console.log("DETAILS", updatedDetails)
 
     // const url = `http://localhost:3000/update-password/${token}`
-    const url = `https://studynotion-edtech-project.vercel.app/update-password/${token}`
-
+    // const url = `https://studynotion-edtech-project.vercel.app/update-password/${token}`
+    const url = `https://study-notion-1is282xlw-miravanisris-projects.vercel.app/update-password/${token}`
     await mailSender(
       email,
       "Password Reset",
@@ -54,7 +54,7 @@ console.log("user",user)
 exports.resetPassword = async (req, res) => {
   try {
     const { password, confirmPassword, token } = req.body
-console.log("token",token)
+console.log("token in rp",token)
     if (confirmPassword !== password) {
       return res.json({
         success: false,
@@ -62,7 +62,10 @@ console.log("token",token)
       })
     }
     const userDetails = await User.findOne({ token: token })
-    console.log("userdtails",userDetails)
+
+
+    console.log("userdetails",userDetails)
+
     if (!userDetails) {
       return res.json({
         success: false,
