@@ -28,7 +28,7 @@ console.log("user",user)
 
     // const url = `http://localhost:3000/update-password/${token}`
     // const url = `https://studynotion-edtech-project.vercel.app/update-password/${token}`
-    const url = `https://study-notion-1is282xlw-miravanisris-projects.vercel.app/update-password/${token}`
+    const url = `https://study-notion-azure-nine.vercel.app/update-password/${token}`
     await mailSender(
       email,
       "Password Reset",
