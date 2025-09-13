@@ -30,7 +30,10 @@ function UpdatePassword() {
 
   const handleOnSubmit = (e) => {
     e.preventDefault()
+ console.log("onsubmit")
     const token = location.pathname.split("/").at(-1)
+       
+    console.log("token ",token)
     dispatch(resetPassword(password, confirmPassword, token, navigate))
   }
 

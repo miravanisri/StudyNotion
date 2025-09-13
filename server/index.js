@@ -15,7 +15,8 @@ const dotenv = require("dotenv");
 
 // Setting up port number
 const PORT = process.env.PORT || 4000;
-
+// console.log("Available environment keys on this server:");
+// console.log(Object.keys(process.env));
 // Loading environment variables from .env file
 dotenv.config();
 

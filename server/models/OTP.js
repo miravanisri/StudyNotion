@@ -20,7 +20,7 @@ const OTPSchema = new mongoose.Schema({
 // Define a function to send emails
 async function sendVerificationEmail(email, otp) {
 	// Create a transporter to send emails
-
+     console.log("logs the email from OTP.js", email, otp);
 	// Define the email options
 
 	// Send the email
@@ -35,6 +35,8 @@ async function sendVerificationEmail(email, otp) {
 		console.log("Error occurred while sending email: ", error);
 		throw error;
 	}
+
+
 }
 
 // Define a post-save hook to send email after the document has been saved
@@ -51,3 +53,8 @@ OTPSchema.pre("save", async function (next) {
 const OTP = mongoose.model("OTP", OTPSchema);
 
 module.exports = OTP;
+
+
+
+
+

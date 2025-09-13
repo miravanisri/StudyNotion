@@ -5,7 +5,9 @@ const crypto = require("crypto")
 exports.resetPasswordToken = async (req, res) => {
   try {
     const email = req.body.email
+
     const user = await User.findOne({ email: email })
+console.log("user",user)
     if (!user) {
       return res.json({
         success: false,
@@ -33,6 +35,8 @@ exports.resetPasswordToken = async (req, res) => {
       `Your Link for email verification is ${url}. Please click this url to reset your password.`
     )
 
+    console.log("token inside resetpassword.js",token)
+
     res.json({
       success: true,
       message:
@@ -50,7 +54,7 @@ exports.resetPasswordToken = async (req, res) => {
 exports.resetPassword = async (req, res) => {
   try {
     const { password, confirmPassword, token } = req.body
-
+console.log("token",token)
     if (confirmPassword !== password) {
       return res.json({
         success: false,
@@ -58,6 +62,7 @@ exports.resetPassword = async (req, res) => {
       })
     }
     const userDetails = await User.findOne({ token: token })
+    console.log("userdtails",userDetails)
     if (!userDetails) {
       return res.json({
         success: false,

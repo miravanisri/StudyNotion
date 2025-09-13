@@ -29,6 +29,8 @@ function SignupForm() {
 
   const { firstName, lastName, email, password, confirmPassword } = formData
 
+
+  // console.log("formdata mail from signupform.jsx",formData.email)
   // Handle input fields, when some value changes
   const handleOnChange = (e) => {
     setFormData((prevData) => ({

@@ -183,6 +183,8 @@ exports.sendotp = async (req, res) => {
   try {
     const { email } = req.body
 
+    console.log("chekcing the otp", req.body);
+
     // Check if user is already present
     // Find user with provided email
     const checkUserPresent = await User.findOne({ email })
@@ -212,13 +214,16 @@ exports.sendotp = async (req, res) => {
       })
     }
     const otpPayload = { email, otp }
+    console.log("otpPayload from Auth.js",otpPayload)
     const otpBody = await OTP.create(otpPayload)
+    
     console.log("OTP Body", otpBody)
     res.status(200).json({
       success: true,
       message: `OTP Sent Successfully`,
       otp,
     })
+
   } catch (error) {
     console.log(error.message)
     return res.status(500).json({ success: false, error: error.message })

@@ -17,6 +17,7 @@ const {
 export function sendOtp(email, navigate) {
   return async (dispatch) => {
     const toastId = toast.loading("Loading...")
+    console.log("mail sending from sendOTP",email)
     dispatch(setLoading(true))
     try {
       const response = await apiConnector("POST", SENDOTP_API, {
@@ -152,6 +153,9 @@ export function resetPassword(password, confirmPassword, token, navigate) {
         confirmPassword,
         token,
       })
+
+
+      console.log("TOKEN",token)
 
       console.log("RESETPASSWORD RESPONSE............", response)
 
