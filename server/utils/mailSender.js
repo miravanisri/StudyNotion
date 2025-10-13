@@ -3,6 +3,13 @@ const nodemailer = require("nodemailer")
 const mailSender = async (email, title, body) => {
   try {
     console.log("came here", email, title, body);
+
+
+    console.log("=== EMAIL DEBUG ===");
+    console.log("MAIL_HOST:", process.env.MAIL_HOST);
+    console.log("MAIL_USER:", process.env.MAIL_USER);
+    console.log("MAIL_PASS exists:", !!process.env.MAIL_PASS);
+    console.log("Attempting to connect...");
     
     let transporter = nodemailer.createTransport({
       host: process.env.MAIL_HOST,
@@ -22,11 +29,12 @@ secure: false, // because 465 uses SSL
       subject: `${title}`, // Subject line
       html: `${body}`, // html body
     })
-    console.log(info.response)
+    console.log("✅ Email sent:", info.messageId);
+
     return info
   } catch (error) {
-    console.log(error.message)
-    return error.message
+    console.error("❌ Email failed:", error);
+    throw error;
   }
 }
 
